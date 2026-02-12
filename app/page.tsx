@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "Fixate - Missed Call Recovery & AI Intake System",
   description:
