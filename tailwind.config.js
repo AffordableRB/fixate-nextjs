@@ -31,9 +31,21 @@ module.exports = {
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
+        success: 'var(--success)',
+        'success-foreground': 'var(--success-foreground)',
       },
       borderRadius: {
         none: '0',
+      },
+      container: {
+        center: true,
+        padding: '1.5rem',
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1200px',
+        },
       },
     },
   },

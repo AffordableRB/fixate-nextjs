@@ -1,111 +1,127 @@
 import { Metadata } from "next";
+import FeatureTabs from "@/components/FeatureTabs";
 
 export const metadata: Metadata = {
   title: "Features - Fixate",
   description:
-    "Explore Fixate's features: Live Intake Dashboard, Intelligent Call Recovery, Customer Context, and Workflow Compatibility.",
+    "Explore Fixate's features: Instant Recovery, Live Intake, Urgency Detection, and the Live Intake Dashboard.",
 };
 
 export default function Features() {
   return (
-    <main className="pt-20">
+    <main>
       {/* Hero */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+      <section
+        className="pt-32 pb-20"
+        style={{
+          background:
+            'linear-gradient(135deg, oklch(0.20 0.02 260) 0%, oklch(0.28 0.04 260) 100%)',
+        }}
+      >
+        <div className="container mx-auto px-6">
+          <p className="font-mono text-sm uppercase tracking-widest text-white/50 mb-4">
+            Platform Features
+          </p>
+          <h1 className="text-5xl lg:text-6xl font-display font-black text-white mb-6 max-w-3xl">
             Fixate isn&apos;t your standard text-back tool.
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl">
+          <p className="text-xl text-white/70 max-w-2xl leading-relaxed">
             It&apos;s a complete intake and recovery system that captures jobs and
             holds them until you call back.
           </p>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+      <hr className="divider-industrial" />
+
+      {/* Feature Tabs */}
+      <section className="py-20 lg:py-28 bg-background">
+        <div className="container mx-auto px-6">
+          <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-3">
+            How It Works
+          </p>
+          <h2 className="text-4xl lg:text-5xl font-display font-black text-foreground mb-12">
             What Fixate does the moment a call is missed
           </h2>
+          <FeatureTabs />
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Instant Recovery
-              </h3>
-              <p className="text-gray-600">
-                Customer reaches you immediately. No delay. No missed
-                opportunity.
-              </p>
-            </div>
+      <hr className="divider-industrial" />
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Live Intake Conversation
-              </h3>
-              <p className="text-gray-600">
-                Multi-turn dialogue captures problem type, urgency, location,
-                and availability.
-              </p>
-            </div>
+      {/* Features Grid */}
+      <section className="py-20 lg:py-28 bg-card">
+        <div className="container mx-auto px-6">
+          <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-3">
+            Capabilities
+          </p>
+          <h2 className="text-4xl lg:text-5xl font-display font-black text-foreground mb-12">
+            Every detail, covered.
+          </h2>
 
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Urgency Detection
-              </h3>
-              <p className="text-gray-600">
-                Automatically flags emergency vs. routine jobs. Prioritize what
-                matters.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Job Details Captured
-              </h3>
-              <p className="text-gray-600">
-                Problem description, location, customer info, and availability
-                all recorded.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Job Held for You
-              </h3>
-              <p className="text-gray-600">
-                Opportunity stays in the system until you&apos;re ready to call back.
-                No expiration.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Informed Callback
-              </h3>
-              <p className="text-gray-600">
-                You call back with full context. No re-explaining. No guessing
-                urgency.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Instant Recovery",
+                desc: "Customer reaches you immediately. No delay. No missed opportunity.",
+              },
+              {
+                title: "Live Intake Conversation",
+                desc: "Multi-turn dialogue captures problem type, urgency, location, and availability.",
+              },
+              {
+                title: "Urgency Detection",
+                desc: "Automatically flags emergency vs. routine jobs. Prioritize what matters.",
+              },
+              {
+                title: "Job Details Captured",
+                desc: "Problem description, location, customer info, and availability all recorded.",
+              },
+              {
+                title: "Job Held for You",
+                desc: "Opportunity stays in the system until you\u2019re ready to call back. No expiration.",
+              },
+              {
+                title: "Informed Callback",
+                desc: "You call back with full context. No re-explaining. No guessing urgency.",
+              },
+            ].map((feature, idx) => (
+              <div key={idx} className="border border-border bg-background p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 bg-primary text-white flex items-center justify-center font-mono text-sm font-bold">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-lg font-display font-black text-foreground">
+                    {feature.title}
+                  </h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Live Intake Dashboard */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <hr className="divider-industrial" />
+
+      {/* Dashboard Section */}
+      <section className="py-20 lg:py-28 bg-background">
+        <div className="container mx-auto px-6">
+          <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-3">
+            Command Center
+          </p>
+          <h2 className="text-4xl lg:text-5xl font-display font-black text-foreground mb-4">
             Live Intake Dashboard
           </h2>
-          <p className="text-lg text-gray-600 mb-12">
+          <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
             A real-time dashboard that shows every recovered call, active
-            intake, emergency, and follow-up in one place — so nothing slips
+            intake, emergency, and follow-up in one place &mdash; so nothing slips
             through.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 title: "Intake Board",
@@ -132,25 +148,37 @@ export default function Features() {
                 desc: "Track recovered calls, job volume, and intake performance",
               },
             ].map((feature, idx) => (
-              <div key={idx} className="p-6 border border-gray-200 rounded-lg">
-                <h3 className="font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.desc}</p>
+              <div key={idx} className="border border-border p-6">
+                <h3 className="font-display font-bold text-foreground mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{feature.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-center text-gray-600 mt-12 italic">
-            Fixate doesn&apos;t just recover missed calls — it organizes them,
+          <p className="text-center text-muted-foreground mt-12 italic">
+            Fixate doesn&apos;t just recover missed calls &mdash; it organizes them,
             prioritizes them, and holds them until you&apos;re ready to act.
           </p>
         </div>
       </section>
 
+      <hr className="divider-industrial" />
+
       {/* CTA */}
-      <section className="py-20 px-4 bg-fixate-blue text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">See the platform in action</h2>
-          <p className="text-lg mb-8 opacity-90">
+      <section
+        className="py-20 lg:py-28"
+        style={{
+          background:
+            'linear-gradient(135deg, oklch(0.40 0.08 260) 0%, oklch(0.35 0.07 260) 100%)',
+        }}
+      >
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl lg:text-5xl font-display font-black text-white mb-6">
+            See the platform in action
+          </h2>
+          <p className="text-xl text-white/80 mb-10">
             Schedule a personalized demo to explore features relevant to your
             business workflows.
           </p>
@@ -158,7 +186,7 @@ export default function Features() {
             href="https://fixate-app.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-white text-fixate-blue rounded font-semibold hover:bg-gray-100 transition"
+            className="inline-block font-display font-bold uppercase text-sm px-10 py-4 bg-white text-primary hover:bg-white/90 transition-all btn-press"
           >
             Schedule Demo
           </a>
