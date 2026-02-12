@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ClientHeader from "@/components/ClientHeader";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Fixate - Missed Call Recovery & AI Intake System",
@@ -28,12 +28,12 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-} ) {
+}) {
   return (
     <html lang="en">
       <head />
       <body>
-        <ClientHeader />
+        <Header />
         {children}
       </body>
     </html>

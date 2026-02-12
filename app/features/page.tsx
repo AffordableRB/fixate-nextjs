@@ -13,10 +13,10 @@ export default function Features() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Fixate isn't your standard text-back tool.
+            Fixate isn&apos;t your standard text-back tool.
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl">
-            It's a complete intake and recovery system that captures jobs and
+            It&apos;s a complete intake and recovery system that captures jobs and
             holds them until you call back.
           </p>
         </div>
@@ -30,9 +30,7 @@ export default function Features() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Instant Recovery */}
             <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="text-4xl mb-4">🔔</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Instant Recovery
               </h3>
@@ -42,9 +40,7 @@ export default function Features() {
               </p>
             </div>
 
-            {/* Live Intake Conversation */}
             <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="text-4xl mb-4">💬</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Live Intake Conversation
               </h3>
@@ -54,9 +50,7 @@ export default function Features() {
               </p>
             </div>
 
-            {/* Urgency Detection */}
             <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="text-4xl mb-4">⚠️</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Urgency Detection
               </h3>
@@ -66,9 +60,7 @@ export default function Features() {
               </p>
             </div>
 
-            {/* Job Details Captured */}
             <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="text-4xl mb-4">📋</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Job Details Captured
               </h3>
@@ -78,21 +70,17 @@ export default function Features() {
               </p>
             </div>
 
-            {/* Job Held for You */}
             <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="text-4xl mb-4">🔒</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Job Held for You
               </h3>
               <p className="text-gray-600">
-                Opportunity stays in the system until you're ready to call back.
+                Opportunity stays in the system until you&apos;re ready to call back.
                 No expiration.
               </p>
             </div>
 
-            {/* Informed Callback */}
             <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <div className="text-4xl mb-4">✅</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 Informed Callback
               </h3>
@@ -152,8 +140,8 @@ export default function Features() {
           </div>
 
           <p className="text-center text-gray-600 mt-12 italic">
-            Fixate doesn't just recover missed calls — it organizes them,
-            prioritizes them, and holds them until you're ready to act.
+            Fixate doesn&apos;t just recover missed calls — it organizes them,
+            prioritizes them, and holds them until you&apos;re ready to act.
           </p>
         </div>
       </section>

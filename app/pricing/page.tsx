@@ -72,7 +72,7 @@ export default function Pricing() {
                   "Works with Jobber, Housecall Pro, ServiceTitan",
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="text-fixate-blue font-bold mt-1">✓</span>
+                    <span className="text-fixate-blue font-bold mt-1">&#10003;</span>
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -92,7 +92,7 @@ export default function Pricing() {
                   "Manage forms or dead ends",
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="text-fixate-blue font-bold mt-1">✓</span>
+                    <span className="text-fixate-blue font-bold mt-1">&#10003;</span>
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -112,7 +112,7 @@ export default function Pricing() {
 
           <div className="bg-white p-12 rounded-lg border border-gray-200">
             <p className="text-lg text-gray-700 mb-6">
-              Fixate isn't a text-back tool — it's a complete, proven intake and
+              Fixate isn&apos;t a text-back tool — it&apos;s a complete, proven intake and
               recovery system that holds jobs until you call back.
             </p>
 
@@ -121,10 +121,10 @@ export default function Pricing() {
                 A typical plumber using Fixate recovers:
               </p>
               <p className="text-2xl font-bold text-fixate-blue mb-4">
-                5 missed calls / week × $360 average job = $1,800 / week
+                5 missed calls / week x $360 average job = $1,800 / week
               </p>
               <p className="text-xl font-bold text-gray-900">
-                That's over $7,000/month in jobs Fixate reliably recovers.
+                That&apos;s over $7,000/month in jobs Fixate reliably recovers.
               </p>
             </div>
 

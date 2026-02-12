@@ -2,68 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --fixate-blue: #3A5582;
-    --fixate-blue-sticky: #2D4772;
-  }
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Fixate Blue CSS Variables */
-.fixate-blue {
-  color: var(--fixate-blue);
-}
-
-.bg-fixate-blue {
-  background-color: var(--fixate-blue);
-}
-
-.bg-fixate-blue-sticky {
-  background-color: var(--fixate-blue-sticky);
-}
-
-.border-fixate-blue {
-  border-color: var(--fixate-blue);
-}
-
-/* Smooth transitions */
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-}
-
-/* Page transition fade */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.3s ease-in;
-}
-
-.fade-out {
-  animation: fadeOut 0.3s ease-out;
 }

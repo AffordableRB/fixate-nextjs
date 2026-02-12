@@ -20,10 +20,10 @@ export default function Home() {
             specifically for plumbers.
           </p>
           <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
-            When a plumber can't answer the phone, Fixate handles the call the
+            When a plumber can&apos;t answer the phone, Fixate handles the call the
             way a real person would. It keeps the customer there, gathers the
             job details, urgency, and location, and holds the job until the
-            plumber calls back to confirm. Missed calls don't turn into dead
+            plumber calls back to confirm. Missed calls don&apos;t turn into dead
             voicemails or a form to fill out. They turn into real jobs, ready
             to dispatch.
           </p>
