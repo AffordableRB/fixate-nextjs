@@ -1,11 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap' );
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Deep Muted Enterprise Blue - Primary Color System */
+  --primary: oklch(0.45 0.08 260);
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Fixate Blue - Global color token for consistency */
+  --fixate-blue: oklch(0.45 0.08 260);
+  /* Fixate Blue Sticky - Darker shade for sticky navigation (10% darker) */
+  --fixate-blue-sticky: oklch(0.40 0.08 260);
+
+  /* Charcoal and neutral system */
+  --background: oklch(0.97 0 0); /* Off-white */
+  --foreground: oklch(0.25 0.01 270); /* Charcoal - primary text */
+  --card: oklch(0.98 0 0);
+  --card-foreground: oklch(0.25 0.01 270);
+  --popover: oklch(0.98 0 0);
+  --popover-foreground: oklch(0.25 0.01 270);
+
+  /* Secondary: Light gray for supporting elements */
+  --secondary: oklch(0.88 0.005 270); /* Light neutral gray */
+  --secondary-foreground: oklch(0.25 0.01 270);
+  --muted: oklch(0.88 0.005 270);
+  --muted-foreground: oklch(0.50 0.01 270);
+  --accent: oklch(0.45 0.08 260); /* Enterprise blue accent */
+  --accent-foreground: oklch(0.98 0 0);
+
+  /* Industrial green for success */
+  --success: oklch(0.45 0.12 155);
+  --success-foreground: oklch(0.98 0 0);
+
+  /* Orange-red for urgency only - minimal use */
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Hard borders - charcoal for structural integrity */
+  --border: oklch(0.35 0.01 270); /* Dark charcoal */
+  --input: oklch(0.88 0.005 270);
+  --ring: oklch(0.45 0.08 260); /* Enterprise blue focus ring */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Industrial divider - thick horizontal rule */
+.divider-industrial {
+  height: 4px;
+  background: var(--border);
+  border: none;
+  margin: 0;
+}
+
+/* Mechanical button press */
+.btn-press:active {
+  transform: scale(0.98);
+}
+
+/* Prominent door opening animation */
+@keyframes doorOpenProminent {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(14deg);
+    opacity: 1;
+  }
+}
+
+.animate-door-open-prominent {
+  transform-origin: 50px 200px;
+  animation: doorOpenProminent 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
 }
