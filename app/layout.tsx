@@ -28,11 +28,14 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+} ) {
   return (
-    <>
-      <ClientHeader />
-      {children}
-    </>
+    <html lang="en">
+      <head />
+      <body>
+        <ClientHeader />
+        {children}
+      </body>
+    </html>
   );
 }
