@@ -1,123 +1,111 @@
-import { Metadata } from "next";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Pricing - Fixate",
-  description:
-    "Simple, flat pricing for Fixate. $129/month. No per-user fees. No call limits. No setup costs.",
-};
+/*
+Design Philosophy: Industrial Modernism - Pricing Page
+- Price as center of gravity
+- Minimal copy, maximum clarity
+- Decision-first layout
+- ROI math unmissable
+*/
+
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
 
 export default function Pricing() {
   return (
-    <main>
-      {/* Hero */}
-      <section
-        className="pt-32 pb-20"
-        style={{
-          background:
-            'linear-gradient(135deg, oklch(0.20 0.02 260) 0%, oklch(0.28 0.04 260) 100%)',
-        }}
-      >
-        <div className="container mx-auto px-6 text-center">
-          <p className="font-mono text-sm uppercase tracking-widest text-white/50 mb-4">
-            Pricing
-          </p>
-          <h1 className="text-5xl lg:text-6xl font-display font-black text-white mb-6">
-            Simple, flat pricing.
-          </h1>
-          <p className="text-2xl text-white/90 font-display font-bold mb-3">
-            $129 / month. One price. Everything included.
-          </p>
-          <p className="text-lg text-white/60">
-            No per-user fees. No call limits. No setup costs.
-          </p>
+    <div className="min-h-screen bg-background">
+      {/* Hero — Price Above Fold */}
+      <section className="py-24 bg-background border-b-4 border-border">
+        <div className="container">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl font-display font-black mb-4 leading-tight">
+              Simple, flat pricing. Built to recover missed jobs.
+            </h1>
+            <div className="mb-8">
+              <p className="text-5xl font-display font-black text-primary mb-6">
+                $129 / month. One price. Everything included.
+              </p>
+              <p className="text-lg font-body text-muted-foreground">
+                No per-user fees. No call limits. No setup costs.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <hr className="divider-industrial" />
-
-      {/* Pricing Card */}
-      <section className="py-20 lg:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-2xl">
-          <div className="border-2 border-primary p-12 text-center">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
-              Most Common Setup for Plumbers
+      {/* Pricing Card — Center of Gravity */}
+      <section className="py-32 bg-background">
+        <div className="container">
+          <div className="max-w-2xl mx-auto">
+            <p className="text-center text-sm font-display font-black uppercase tracking-widest text-muted-foreground mb-8">
+              Most common setup for plumbers
             </p>
-            <p className="text-7xl font-display font-black text-primary mb-2">$129</p>
-            <p className="text-muted-foreground mb-8">Per month</p>
-            <div className="border-t border-border pt-8 mb-8">
-              <p className="text-lg text-foreground mb-2 font-bold">
-                Everything included. No setup required.
-              </p>
-              <p className="text-muted-foreground">
-                Start using Fixate immediately. No sales call required.
-              </p>
+            
+            {/* Fixate Core Plan */}
+            <div className="border-4 border-primary bg-card shadow-2xl">
+              <div className="p-16 border-b-4 border-primary bg-primary/10 text-center">
+                <div className="mb-8">
+                  <div className="text-8xl font-display font-black text-primary">$129</div>
+                  <div className="text-2xl font-body text-muted-foreground mt-2">Per month</div>
+                </div>
+                <p className="text-lg font-body text-muted-foreground">
+                  Everything included. No setup required.
+                </p>
+              </div>
+              <div className="p-16">
+                <div className="space-y-4 mb-8">
+                  <Link href="/start" className="block">
+                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-display font-bold uppercase h-14 btn-press text-lg">
+                      Get started
+                    </Button>
+                  </Link>
+                  <Link href="/demo" className="block">
+                    <Button variant="outline" className="w-full border-2 border-border hover:bg-muted font-display font-bold uppercase h-12 btn-press text-sm">
+                      Schedule a demo (optional)
+                    </Button>
+                  </Link>
+                </div>
+                <p className="text-sm font-body text-muted-foreground text-center">
+                  Start using Fixate immediately. No sales call required.
+                </p>
+              </div>
             </div>
-            <a
-              href="https://fixate-app.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block font-display font-bold uppercase text-sm px-10 py-4 bg-primary text-white hover:opacity-90 transition-all btn-press"
-            >
-              Get Started
-            </a>
           </div>
         </div>
       </section>
 
       <hr className="divider-industrial" />
 
-      {/* What's Included */}
-      <section className="py-20 lg:py-28 bg-card">
-        <div className="container mx-auto px-6">
-          <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-3 text-center">
-            Everything Included
+      {/* Everything Included — Two Column Proof */}
+      <section className="py-24 bg-muted/30">
+        <div className="container">
+          <h2 className="text-5xl font-display font-black mb-4 text-center">Everything included. No add-ons. No tiers.</h2>
+          <p className="text-lg font-body text-muted-foreground text-center mb-16 max-w-3xl mx-auto">
+            Unlike basic missed-call text-back tools, Fixate completes intake and holds the job until you call back.
           </p>
-          <h2 className="text-4xl lg:text-5xl font-display font-black text-foreground mb-16 text-center">
-            No add-ons. No tiers.
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-xl font-display font-black text-foreground mb-6 uppercase">
-                What Fixate Does Automatically
-              </h3>
+              <h3 className="text-2xl font-display font-black mb-8 pb-4 border-b-4 border-primary">What Fixate does automatically</h3>
               <ul className="space-y-4">
-                {[
-                  "Intelligent SMS intake",
-                  "Emergency vs non-emergency detection",
-                  "Job summaries for callbacks",
-                  "Customer contact & location capture",
-                  "Works with Jobber, Housecall Pro, ServiceTitan",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 bg-success text-white flex items-center justify-center font-mono text-xs font-bold mt-0.5">
-                      &#10003;
-                    </span>
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
+                <li className="text-lg font-body text-foreground">Intelligent SMS intake</li>
+                <li className="text-lg font-body text-foreground">Emergency vs non-emergency detection</li>
+                <li className="text-lg font-body text-foreground">Job summaries for callbacks</li>
+                <li className="text-lg font-body text-foreground">Customer contact & location capture</li>
+                <li className="text-lg font-body text-foreground">Works with Jobber, Housecall Pro, ServiceTitan</li>
               </ul>
             </div>
-
+            
             <div>
-              <h3 className="text-xl font-display font-black text-foreground mb-6 uppercase">
-                What Plumbers No Longer Have to Do
-              </h3>
+              <h3 className="text-2xl font-display font-black mb-8 pb-4 border-b-4 border-primary">What plumbers no longer have to do</h3>
               <ul className="space-y-4">
-                {[
-                  "Answer every call",
-                  "Chase voicemails",
-                  "Re-ask questions",
-                  "Manually triage urgency",
-                  "Manage forms or dead ends",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 bg-success text-white flex items-center justify-center font-mono text-xs font-bold mt-0.5">
-                      &#10003;
-                    </span>
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
+                <li className="text-lg font-body text-foreground">Answer every call</li>
+                <li className="text-lg font-body text-foreground">Chase voicemails</li>
+                <li className="text-lg font-body text-foreground">Re-ask questions</li>
+                <li className="text-lg font-body text-foreground">Manually triage urgency</li>
+                <li className="text-lg font-body text-foreground">Manage forms or dead ends</li>
               </ul>
             </div>
           </div>
@@ -126,96 +114,111 @@ export default function Pricing() {
 
       <hr className="divider-industrial" />
 
-      {/* ROI Section */}
-      <section className="py-20 lg:py-28 bg-background">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <p className="font-mono text-sm uppercase tracking-widest text-muted-foreground mb-3 text-center">
-            Return on Investment
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-display font-black text-foreground mb-12 text-center">
-            Most plumbers lose thousands each month.
-          </h2>
-
-          <div className="border border-border p-10 lg:p-12">
-            <p className="text-lg text-foreground mb-8 leading-relaxed">
-              Fixate isn&apos;t a text-back tool &mdash; it&apos;s a complete, proven intake and
-              recovery system that holds jobs until you call back.
+      {/* ROI — Math Unmissable */}
+      <section className="py-32 bg-background">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-display font-black mb-4 text-center">
+              Most plumbers lose thousands each month without a real call-recovery system.
+            </h2>
+            <p className="text-xl font-body text-muted-foreground text-center mb-16">
+              Fixate isn't a text-back tool — it's a complete, proven intake and recovery system that holds jobs until you call back.
             </p>
-
-            <div className="bg-primary/5 border-l-4 border-primary p-8 mb-8">
-              <p className="text-muted-foreground mb-3 font-mono text-sm uppercase">
-                A Typical Plumber Using Fixate Recovers:
+            
+            <div className="bg-primary/10 border-4 border-primary p-16 mb-12 text-center">
+              <p className="text-lg font-body text-muted-foreground mb-6">
+                A typical plumber using Fixate recovers:
               </p>
-              <p className="text-2xl font-display font-black text-primary mb-3">
-                5 missed calls / week x $360 average job = $1,800 / week
+              <p className="text-3xl font-display font-black mb-6">
+                5 missed calls / week × $360 average job = <span className="text-primary text-4xl">$1,800 / week</span>
               </p>
-              <p className="text-xl font-display font-bold text-foreground">
-                That&apos;s over $7,000/month in jobs Fixate reliably recovers.
+              <p className="text-2xl font-body text-muted-foreground mb-8">
+                That's over <span className="font-display font-black text-primary">$7,000/month</span> in jobs Fixate reliably recovers.
               </p>
-            </div>
-
-            <div className="text-center border-t border-border pt-8">
-              <p className="text-muted-foreground mb-2">Fixate costs</p>
-              <p className="text-4xl font-display font-black text-primary mb-4">
-                $129/month
-              </p>
-              <p className="text-lg text-foreground font-bold">
-                Most customers cover Fixate with their first recovered job.
+              <p className="text-xl font-display font-black">
+                Fixate costs <span className="text-primary">$129/month</span>.
               </p>
             </div>
+            <p className="text-sm font-body text-muted-foreground text-center">
+              Most customers cover Fixate with their first recovered job.
+            </p>
           </div>
         </div>
       </section>
 
       <hr className="divider-industrial" />
 
-      {/* FAQ */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-display font-black text-foreground mb-6">
-            Questions?
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            <a
-              href="https://fixate-app.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary font-bold hover:underline"
-            >
-              Talk to us
-            </a>
-            {' '}&mdash; demos are optional.
+      {/* Support */}
+      <section className="py-16 bg-muted/30">
+        <div className="container text-center">
+          <p className="text-lg font-body text-muted-foreground">
+            Questions? <Link href="/contact" className="font-display font-black text-primary hover:underline">Talk to us</Link> — demos are optional.
           </p>
         </div>
       </section>
 
       <hr className="divider-industrial" />
 
-      {/* CTA */}
-      <section
-        className="py-20 lg:py-28"
-        style={{
-          background:
-            'linear-gradient(135deg, oklch(0.40 0.08 260) 0%, oklch(0.35 0.07 260) 100%)',
-        }}
-      >
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl lg:text-5xl font-display font-black text-white mb-6">
+      {/* Final CTA */}
+      <section className="py-32 bg-foreground text-background">
+        <div className="container text-center">
+          <h2 className="text-6xl font-display font-black mb-8">
             Start recovering missed calls today.
           </h2>
-          <p className="text-xl text-white/80 mb-4">
+          <p className="text-2xl font-body mb-12 max-w-2xl mx-auto opacity-90">
             $129/month. No contracts. Cancel anytime.
           </p>
-          <a
-            href="https://fixate-app.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block font-display font-bold uppercase text-sm px-10 py-4 bg-white text-primary hover:bg-white/90 transition-all btn-press mt-6"
-          >
-            Get Started
-          </a>
+          <Link href="/start">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-display font-bold uppercase tracking-wide px-12 h-14 btn-press text-lg">
+              Get started <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </section>
-    </main>
+
+      {/* Footer */}
+      <footer className="border-t-4 border-border bg-background py-16">
+        <div className="container">
+          <div className="grid md:grid-cols-4 gap-12">
+            <div>
+              <div className="text-2xl font-display font-black mb-4">
+                FIXATE
+              </div>
+              <p className="text-sm font-body text-muted-foreground">
+                Operational software for home service businesses.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-sm font-display font-black uppercase mb-4">Product</h4>
+              <ul className="space-y-2 text-sm font-body">
+                <li><Link href="/features"><span className="text-muted-foreground hover:text-foreground">Features</span></Link></li>
+                <li><Link href="/pricing"><span className="text-muted-foreground hover:text-foreground">Pricing</span></Link></li>
+                <li><Link href="/demo"><span className="text-muted-foreground hover:text-foreground">Request Demo</span></Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-display font-black uppercase mb-4">Industries</h4>
+              <ul className="space-y-2 text-sm font-body">
+                <li><span className="text-muted-foreground">HVAC</span></li>
+                <li><span className="text-muted-foreground">Plumbing</span></li>
+                <li><span className="text-muted-foreground">Electrical</span></li>
+                <li><span className="text-muted-foreground">Multi-Trade</span></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-display font-black uppercase mb-4">Company</h4>
+              <ul className="space-y-2 text-sm font-body">
+                <li><span className="text-muted-foreground">About</span></li>
+                <li><span className="text-muted-foreground">Blog</span></li>
+                <li><span className="text-muted-foreground">Contact</span></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t-4 border-border mt-12 pt-12 text-center text-sm font-body text-muted-foreground">
+            <p>© 2026 Fixate. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }

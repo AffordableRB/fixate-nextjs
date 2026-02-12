@@ -1,142 +1,256 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@custom-variant dark (&:is(.dark *));
+
+/* 
+Design Philosophy: Industrial Modernism with Brutalist Typography
+- Operational transparency through stark hierarchy
+- Deep muted enterprise blue as primary color (stability, authority)
+- Charcoal for structure and primary text (functional hierarchy)
+- Orange-red reserved for urgency only (minimal use)
+- Geometric precision with 8px baseline grid
+- Monospace for technical data, bold geometric sans for headlines
+*/
+
+@theme inline {
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom font families */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
 
 :root {
+  /* Deep Muted Enterprise Blue - Primary Color System */
+  /* OKLCH: 0.45 lightness, 0.08 chroma, 260° hue */
+  /* Conveys stability, authority, and operational trust */
   --primary: oklch(0.45 0.08 260);
   --primary-foreground: oklch(0.98 0 0);
+  
+  /* Fixate Blue - Global color token for consistency */
+  /* Hex equivalent: #3A5582 */
   --fixate-blue: oklch(0.45 0.08 260);
+  /* Fixate Blue Sticky - Darker shade for sticky navigation (10% darker) */
+  /* Hex equivalent: #2D4772 */
   --fixate-blue-sticky: oklch(0.40 0.08 260);
-  --background: oklch(0.97 0 0);
-  --foreground: oklch(0.25 0.01 270);
+  --sidebar-primary: oklch(0.45 0.08 260);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  
+  /* Charcoal and neutral system */
+  --background: oklch(0.97 0 0); /* Off-white */
+  --foreground: oklch(0.25 0.01 270); /* Charcoal - primary text */
   --card: oklch(0.98 0 0);
   --card-foreground: oklch(0.25 0.01 270);
   --popover: oklch(0.98 0 0);
   --popover-foreground: oklch(0.25 0.01 270);
-  --secondary: oklch(0.88 0.005 270);
+  
+  /* Secondary: Light gray for supporting elements */
+  --secondary: oklch(0.88 0.005 270); /* Light neutral gray */
   --secondary-foreground: oklch(0.25 0.01 270);
   --muted: oklch(0.88 0.005 270);
   --muted-foreground: oklch(0.50 0.01 270);
-  --accent: oklch(0.45 0.08 260);
+  --accent: oklch(0.45 0.08 260); /* Enterprise blue accent */
   --accent-foreground: oklch(0.98 0 0);
+  
+  /* Industrial green for success - unchanged */
   --success: oklch(0.45 0.12 155);
   --success-foreground: oklch(0.98 0 0);
+  
+  /* Orange-red for urgency only - minimal use */
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.75 0.005 270);
-  --border-hard: oklch(0.35 0.01 270);
+  
+  /* Hard borders - charcoal for structural integrity */
+  --border: oklch(0.35 0.01 270); /* Dark charcoal */
   --input: oklch(0.88 0.005 270);
-  --ring: oklch(0.45 0.08 260);
+  --ring: oklch(0.45 0.08 260); /* Enterprise blue focus ring */
+  
+  /* Chart colors - enterprise blue palette */
+  --chart-1: oklch(0.45 0.08 260);
+  --chart-2: oklch(0.50 0.10 260);
+  --chart-3: oklch(0.40 0.08 260);
+  --chart-4: oklch(0.35 0.08 260);
+  --chart-5: oklch(0.30 0.08 260);
+  
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.25 0.01 270);
+  --sidebar-accent: oklch(0.88 0.005 270);
+  --sidebar-accent-foreground: oklch(0.25 0.01 270);
+  --sidebar-border: oklch(0.35 0.01 270);
+  --sidebar-ring: oklch(0.45 0.08 260); /* Enterprise blue focus ring */
+  
+  --radius: 0;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'IBM Plex Sans', sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
-
-/* Glassmorphic card */
-.glass {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-dark {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Industrial divider */
-.divider-industrial {
-  height: 4px;
-  background: var(--border-hard);
-  border: none;
-  margin: 0;
-}
-
-/* Mechanical button press */
-.btn-press:active {
-  transform: scale(0.98);
-}
-
-/* Step indicator active */
-.step-active {
-  background-color: var(--primary);
-  color: white;
-}
-
-.step-inactive {
-  background-color: var(--secondary);
-  color: var(--muted-foreground);
-}
-
-/* Door opening animation */
-@keyframes doorOpenProminent {
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-    opacity: 0;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-  8% {
-    opacity: 1;
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
-  100% {
-    transform: perspective(1000px) rotateY(14deg);
-    opacity: 1;
+  
+  /* Typography system */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
   }
 }
 
-.animate-door-open-prominent {
-  transform-origin: 50px 200px;
-  animation: doorOpenProminent 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Industrial divider - thick horizontal rule */
+  .divider-industrial {
+    height: 4px;
+    background: oklch(0.35 0.01 270);
+    border: none;
+    margin: 0;
+  }
+  
+  /* Functional badge - hard-edged rectangular label */
+  .badge-functional {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    background: oklch(0.35 0.01 270);
+    color: oklch(0.98 0 0);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Metric lockup - number + label pairing */
+  .metric-lockup .number {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1;
+    color: oklch(0.25 0.01 270); /* Charcoal for primary emphasis */
+  }
+  
+  .metric-lockup .label {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: oklch(0.50 0.01 270);
+  }
 }
 
-/* Fade in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@layer utilities {
+  /* Baseline grid alignment */
+  .baseline-8 {
+    line-height: 2rem; /* 32px = 4 × 8px */
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  /* Industrial transitions - hard cuts, no easing */
+  .transition-industrial {
+    transition-timing-function: linear;
+    transition-duration: 0ms;
   }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  
+  /* Mechanical button press */
+  .btn-press:active {
+    transform: scale(0.98);
+  }
+  
+  /* Prominent door opening animation - clear and obvious */
+  @keyframes doorOpenProminent {
+    0% {
+      transform: perspective(1000px) rotateY(0deg);
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    100% {
+      transform: perspective(1000px) rotateY(14deg);
+      opacity: 1;
+    }
+  }
+  
+  .animate-door-open-prominent {
+    transform-origin: 50px 200px;
+    animation: doorOpenProminent 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+  }
 }
